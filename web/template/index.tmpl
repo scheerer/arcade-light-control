@@ -1,0 +1,25 @@
+{{define "title"}}
+  Lights Control Panel | {{index . "title"}}
+{{end}}
+
+{{define "body"}}
+  <div class="control-panel">
+    <h1>Lights Control Panel</h1>
+    <button type="button" class="button" onclick="lightMode('normal');">Normal</button>
+    <button type="button" class="button" onclick="lightMode('arcade-screen');">Arcade Screen</button>
+  </div>
+{{end}}
+
+{{define "scripts"}}
+  <script>
+    const base_url = '';
+    function lightMode(mode) {
+        $.ajax({
+            url: `${base_url}/lights?mode=${mode}`,
+            type: 'PUT',
+            success: function () {
+            }
+        });
+    }
+  </script>
+{{end}}
